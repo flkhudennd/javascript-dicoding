@@ -217,6 +217,7 @@ Operator dalam bahasa pemrograman yaitu simbol yang memberi tahu intepreter untu
   &&              Operator dan (and). Logika akan menghasilkan nilai true apabila semua kondisi terpenuhi (bernilai true)
   ||              Operator atau (or). Logika akan menghasilkan nilai true apabila ada salah satu kondisi terpenuhi (bernilai true)
   !               Operator tidak (not). Digunakan untuk membalikkan suatu kondisi
+  ===============================================
 */
 
 a+=b; // expression a+=b digunakan sebagai shortcut dari a=a+b, cara ini dapat digunakan di operator aritmatika lain
@@ -250,3 +251,35 @@ console.log(a > 4 || b > 1); // (false || true) -> true
 // NOT Operator
 console.log(!(a < 4)); // !(true) -> false
 console.log(!(a < 4 && b > 1)); // !(true && true) -> false
+
+/*
+IF ELSE (PERCABANGAN)
+
+*/
+
+const hujan = true; // jika bernilai false maka kode blok dalam if tidak dijalankan 
+console.log("Persiapan sebelum berangkat"); 
+
+if(hujan) {
+  console.log("Hari ini hujan. Bawa Payung");
+}
+console.log("Berangkat");
+
+if(a > 5) {
+  console.log(a);
+} else {
+  console.log("Nilai kurang dari 5");
+}
+
+let language = "French";
+let greeting = "Selamat Pagi";
+
+if(language === "English") {
+  greeting = "Good Morning!";
+} else if(language === "French") {
+  greeting = "Bonjour!";
+} else if(language === "Japanese") {
+  greeting = "Ohayou Gozaimasu!";
+}
+
+console.log(greeting);
