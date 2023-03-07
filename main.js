@@ -86,6 +86,25 @@ Pada JavaScript terdapat beberapa tipe data
   Sering digunakan untuk kriptografi
   Untuk membedakan tipe BigInt dan Number tambahkan karakter "n" di akhir angka
   Meskipun untuk menyimpan angka besar tetapi bigInt tetap bisa digunakan untuk menyimpan angka kecil
+- Strings
+  Sebuah teks, untuk menampilkan nilai string gunakan tanda petik 1 ('') atau 2 ("") diantara teks
+  Tidak ada perbedaan menggunakan petik 1 atau 2, dapat digunakan secara bergantian terutama saat menulis teks yang mengandung tanda petik
+  Jika teks memiliki 2 buah jenis tanda petik, gunakan backslash (\) sebelum tanda petik, disebut juga escape string
+  Backslash juga berguna untuk mengabaikan simbol lain yang menimbulkan ambigu dalam string
+  String dapat menggunakan operator (+), berfungsi untuk menggabungkan 2 teks menjadi 1 (string concatenation)
+  Dapat memasukkan variabel ke dalam string template (string interpolation) (`)
+- Boolean
+  Boolean hanya memilik 2 nilai, yaitu true atau false
+  Kunci utama dalam penentuan logika 
+- Null 
+  Serupa dengan undefined, namun perlu diinisialisasi pada variabel
+  Null biasa digunakan sebagai nilai sementara tetapi sebenarnya nilai tersebut tidak ada
+  Jika ingin sebuah variabel namun belum memerlukan nilai apa apa dan tidak ingin terikat oleh tipe data apapun
+- Symbol
+  Tipe data baru
+  Tipe simbol digunakan untuk menunjukkan identifier yang unik 
+  Symbol disebut identifier yang unik karena meskipun membuat 2 variabel dengan nama dan deskripsi sama keduanya dianggap berbeda
+  Symbol ini umumnya digunakan sebagai nama property dari Object. Object sendiri merupakan tipe data kompleks untuk menyimpan berbagai struktur data.
 */
 
 let x; 
@@ -132,3 +151,135 @@ console.log(5n*2n);
 console.log(5n/2n); // menggunakan bigInt makan operasi pembagian dibulatkan kebawah
 console.log(5n%2n);
 
+ // String
+let salam = "Selamat Pagi";
+console.log(salam);
+
+let pertinyiin = '"Mau Kemana?" tanya saya';
+console.log(pertinyiin);
+
+let jiwib = '"Kesana" jawab Daffa\''; // escape string
+console.log(jiwib);
+console.log("Windows path: C:\\Program Files\\MyProject"); // escape string digunakan untuk simbol backslash
+
+console.log(`Halo nama saya ${fullName}`); //string interpelation menggunakan backsticks (`)
+
+// Boolean
+let booleanx = true;
+let booleany = false;
+
+console.log(typeof(booleanx));
+console.log(typeof(booleany));
+
+let kurangDari = a < b;
+let lebihDari = a > b;
+
+console.log(kurangDari);
+console.log(lebihDari);
+
+// Null
+let kapanNikah = null;
+console.log(kapanNikah);
+
+// Symbol
+const idr = Symbol("idr");
+const idr2 = Symbol("idr");
+console.log(idr);
+console.log(idr==idr2);
+
+/*
+OPERATOR
+Operator dalam bahasa pemrograman yaitu simbol yang memberi tahu intepreter untuk melakukan operasi matematika, relasional, atau logika
+- Assignment Operator
+  Operator tanda sama dengan (=) yang digunakan untuk menginisialisasi nilai pada variabel
+  Variabel disebelah kiri, nilainya disebelah kanan
+- Comparison Operator
+  Operator untuk membandingkan dan sebagai logika dasar
+  ===============================================
+  Operator        Fungsi
+  ==              Membandingkan kedua nilai apakah sama (tidak identik)
+  !=              Membandingkan kedua nilai apakah tidak sama (tidak identik)
+  ===             Membandingkan kedua nilai apakah identik
+  !==             Membandingkan kedua nilai apakah tidak identik
+  >               Membandingkan dua nilai apakah nilai pertama lebih dari nilai kedua
+  >=              Membandingkan dua nilai apakah nilai pertama lebih dari atau sama dengan nilai kedua
+  <               Membandingkan dua nilai apakah nilai pertama kurang dari nilai kedua
+  <=              Membandingkan dua nilai apakah nilai pertama kurang dari atau sama dengan nilai kedua
+  ===============================================
+  Ketika membandingkan 2 nilai, JavaScript akan mengevaluasi dan mengembalikan dengan hasil boolean 
+  Perbedaan "sama" dan "identik"
+  Dalam operator komparasi di javascript, terdapat perbedaan antara "sama" (==) dan "identik" (===)
+- Logical Operator
+  Terdapat operator yang digunakan untuk menetapkan logika yang lebih kompleks, yaitu Logical Operator
+  Dengan logical operator kita dapat menggunakan kombinasi dari dua nilai boolean atau bahkan lebih dalam menetapkan logika
+  Pada javascript terdapat 3 buah karakter khusus yang berfungsi sebagai logical operator
+  ===============================================
+  &&              Operator dan (and). Logika akan menghasilkan nilai true apabila semua kondisi terpenuhi (bernilai true)
+  ||              Operator atau (or). Logika akan menghasilkan nilai true apabila ada salah satu kondisi terpenuhi (bernilai true)
+  !               Operator tidak (not). Digunakan untuk membalikkan suatu kondisi
+  ===============================================
+*/
+
+a+=b; // expression a+=b digunakan sebagai shortcut dari a=a+b, cara ini dapat digunakan di operator aritmatika lain
+console.log(a); 
+a-=b; // a=a-b
+console.log(a);
+a*=b; // a=a*b
+console.log(a);
+a/=b; // a=a/b
+console.log(a);
+a%=b; // a=a%b
+console.log(a);
+
+console.log(a<b);
+console.log(a>b);
+
+const aNumber = 10;
+const aStirng = '10';
+
+console.log(aNumber == aStirng); // hasil true, kerena nilainya sama-sama 10
+console.log(aNumber === aStirng); // hasil false, karena walaupun nilainya sama, tetapi tipe data berbeda
+
+// AND Operator a=3 dan b=2
+console.log(a < 4 && b > 1); // (true && true) -> true
+console.log(a > 4 && b > 1); // (false && true) -> false
+
+// OR Operator
+console.log(a < 4 || b > 1); // (true || true) -> true
+console.log(a > 4 || b > 1); // (false || true) -> true
+
+// NOT Operator
+console.log(!(a < 4)); // !(true) -> false
+console.log(!(a < 4 && b > 1)); // !(true && true) -> false
+
+/*
+IF ELSE (PERCABANGAN)
+
+*/
+
+const hujan = true; // jika bernilai false maka kode blok dalam if tidak dijalankan 
+console.log("Persiapan sebelum berangkat"); 
+
+if(hujan) {
+  console.log("Hari ini hujan. Bawa Payung");
+}
+console.log("Berangkat");
+
+if(a > 5) {
+  console.log(a);
+} else {
+  console.log("Nilai kurang dari 5");
+}
+
+let language = "French";
+let greeting = "Selamat Pagi";
+
+if(language === "English") {
+  greeting = "Good Morning!";
+} else if(language === "French") {
+  greeting = "Bonjour!";
+} else if(language === "Japanese") {
+  greeting = "Ohayou Gozaimasu!";
+}
+
+console.log(greeting);
