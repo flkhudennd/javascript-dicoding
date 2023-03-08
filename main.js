@@ -254,7 +254,20 @@ console.log(!(a < 4 && b > 1)); // !(true && true) -> false
 
 /*
 IF ELSE (PERCABANGAN)
-
+IF/ELSE mendukung ternary operator atau conditional expression dengan ini dapat menuliskan if else statement hanya dengan satu baris
+  Truthy/False
+di dalam if statement kita perlu memasukkan expression yang akan dievaluasi
+umumnya expression akan mengembalikan nilai boolean untuk menentukan kondisi true atau false
+apakah bisa tidak mengembalikan nilai boolean? bisa
+Setiap nilai pada javascript dasarnya mewarisi sifat boolean, nilai ini dikenal dengan truthy and falsy 
+Truthy = true, falsy = false
+tipe data yang dianggap falsy
+- Number 0
+- BigInt 0n
+- String kosong seperti "" atau ''
+- null
+- undefined
+- NaN atau Not a Number
 */
 
 const hujan = true; // jika bernilai false maka kode blok dalam if tidak dijalankan 
@@ -283,3 +296,22 @@ if(language === "English") {
 }
 
 console.log(greeting);
+
+// condition ? true expression : false expression
+/* ternary operator membutuhkan 3 operand, sebelum tanda tanya(?) berisi kondisi yang ingin kita evaluasi 
+kemudian diikuti dengan expression bernilai benar sebelum tanda titik dua dan expression bernilai salah setelah titik dua
+Karena merupakan conditional expression maka operand kedua dan ketiga harus mengembalikan nilai
+*/
+
+const isMember = true;
+const discount = isMember? 0.1 : 0; //jika isMember bernilai true maka 0.1 dan jika bernilai false maka 0
+console.log(`Anda mendapatkan diskon sebesar ${discount * 100}%`); 
+
+// Truthy and Falsy
+let name = "";
+
+if (name) { // falsy
+  console.log(`Nama saya ${nama}`);
+} else {
+  console.log("Nama masih kosong");
+}
