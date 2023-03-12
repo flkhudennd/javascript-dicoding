@@ -1,3 +1,4 @@
+// alert ('Belajar Javascript Dicoding');
 console.log("Menulis Kode JavaScript");
 console.log("Muhammad Falikhuddin Daffa");
 
@@ -284,7 +285,7 @@ if(a > 5) {
   console.log("Nilai kurang dari 5");
 }
 
-let language = "French";
+let language = "English";
 let greeting = "Selamat Pagi";
 
 if(language === "English") {
@@ -315,3 +316,69 @@ if (name) { // falsy
 } else {
   console.log("Nama masih kosong");
 }
+
+/*SWITCH CASE
+Tanda kurung setelah keyword switch berisi variabel atau expression yang akan dievaluasi. 
+Kemudian untuk setiap kondisi yang mungkin terjadi, kita masukkan keyword case diikuti dengan nilai yang valid. 
+Jika kondisi pada case sama dengan variabel pada switch, maka blok kode setelah titik dua (:) akan dijalankan. 
+Keyword break digunakan untuk keluar dari proses switch. 
+Terdapat satu case bernama default yang memiliki fungsi yang sama dengan keyword else pada control flow if-else. 
+Jika tidak ada nilai yang sama dengan variabel pada switch, maka blok kode ini akan dijalankan.
+*/
+
+let sapaan = null;
+switch (language) {
+  case "English":
+    sapaan = "Good Morning";
+    break;
+  case "French":
+    sapaan = "Bonjour";
+    break;
+  case "Japanese":
+    sapaan = "Ohayou Gozaimasu";
+    break;
+  default:
+    sapaan = "Selamat Pagi";    
+}
+
+console.log(sapaan);
+
+/*LOOPING
+Dari beberapa cara melakukan proses loop dapat menggunakan "for"
+Penjelasan kode blok dibawah:
+1. variabel i sebagai index iterasi, variabel ini menginisialisasi nilai awal perulangan
+2. javascript akan melakukan pengecekan kondisi apakah perulangan masih perlu dilakukan, jika bernilai true maka kode blok for akan dijalankan
+3. increment/decrement, disini melakukan penambahan atau pengurangan variabel iterasi 
+Cara lain dalam melakukan looping adalah dengan for .. of
+For of tidak membutuhkan banyak statement untuk melakukan looping pada array
+Dengan for of nilai tiap array akan diinisialisasikan pada variabel baru yang ditentukan pada tiap proses loopingnya
+Jumlah proses looping juga menyesuaikan dengan ukuran array
+Do .. while
+Sama seperti for, intruksi while mengevaluasi ekspresi boolean dan menjalankan kode dalam blok while ketika bernilai true
+While dapat melakukan perulangan yang sama dengan for, tetapi while lebih cocok digunakan pada kasus di mana kita tidak tahu pasti berapa banyak perulangan
+*/
+
+for (let i=0; i<5; i++) { // jika i kurang dari 5, makan tampilkan nilai i
+  console.log(i);
+}
+
+// looping for .. of
+let myArray = ["Luke", "Graham", "Bell"];
+
+for (const arrayItem of myArray) { 
+  console.log(arrayItem);
+}
+
+// looping do .. while
+let i = 1;
+
+/*while (i<=10) { // kondisi while akan dievaluasi sebelum kode didalamnya dijalankan 
+  console.log(i);
+  i++;
+}*/
+
+do {
+  console.log(i);
+  i++;
+} while (i<=5); // do while akan mengevaluasi boolean expression setelah kodenya dijalankan 
+
