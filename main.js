@@ -51,9 +51,9 @@ console.log(fullName);
 let lastName = " Daffa"; // assignment expression
 console.log(lastName);
 
-let fisrtName = "Falikhuddin";
+let firstName = "Falikhuddin";
 
-let fullName2 = (fisrtName + lastName);
+let fullName2 = (firstName + lastName);
 console.log(fullName2);
 
 const birthDay = 25082002;
@@ -381,4 +381,141 @@ do {
   console.log(i);
   i++;
 } while (i<=5); // do while akan mengevaluasi boolean expression setelah kodenya dijalankan 
+
+console.log("Struktur Data");
+
+/* MODUL PENGENALAN STRUKTUR DATA
+Tipe data yang kita bahas sebelumnya termasuk dalam kategori tipe data primitif yang hanya bisa menyimpan satu nilai
+Pada modul ini membahas tipe data JavaScript yang dapat menyimpan struktur data yang lebih kompleks
+- Object
+- Array
+- Map
+- Set
+*/
+
+/* OBJECT
+Sebuah tipe data yang sangat berguna dalam pengembangan aplikasi dengan JavaScript 
+Objek mampu menyimpan nilai dari beragam nilai dari beragam tipe data dan membentuk data lebih kompleks
+Untuk menetapkan objek pada sebuah variabel kita gunakan tanda kurung kurawal {}
+const user = {};
+Objek berisi pasangan key dan value yang juga dikenal dengan property
+Key berperan mirip seperti nama variabel yang menyimpan sebuah nilai
+Sementara, value berisi nilai dengan tipe data apa pun termasuk objek lain
+Key dan Value di dalam object dituliskan seperti berikut:
+*/
+
+let object = {key1: "value1", key2: "value2", key3: "value3"} 
+// key harus berupa string dan dituliskan sebelum titik dua(:), lalu diikuti dengan value-nya
+// Meskipun key merupakan string, kita tidak perlu menuliskan tanda petik kecuali ada karakter khusus seperti spasi
+
+const user = {
+  name: "Falikhuddin Daffa",
+  age: 20,
+  species: "Human",
+  isJedi: true,
+  "home world": "Tattooine"
+};
+
+console.log(`Halo, nama saya ${user.name}`);
+console.log(`Umur saya ${user.age}`);
+console.log(`Saya berasal dari ${user["home world"]}`);
+// selain dot operator, kita juga bisa mengakses properti dari object menggunakan bracket atau tanda kurung siku []
+
+const spaceship = {
+  name: "Millenium Falcon",
+  manufacturer: "Correlian Engineering Coorporation",
+  maxSpeed: 1200,
+  color: "Light Gray"
+};
+
+spaceship.color = "Glossy Red";
+spaceship["maxSpeed"] = 1300;
+spaceship.class = "Light Freighter";
+
+delete spaceship.manufacturer; // dapat menghapus property pada object menggunakan keyword delete
+
+console.log(spaceship);
+console.log(`Halo, nama saya ${spaceship.name}`);
+console.log(`${spaceship.maxSpeed}`);
+// object spaceship dideklarasikan sebagai const, tetapi masih bisa diubah
+// yang perlu diperhatikan adalah mengubah nilai berbeda dengan menginisialisasi ulang nilai
+// ketika membuat sebuah object, kita tidak terikat dengan properti di dalamnya sehingga masih bisa memodifikasi nilainya
+// ketika kita mengubah object menggunakan assignment operator dan property/key sudah ada, maka nilai yang di dalamnya akan tergantikan dengan nilai yang baru
+// sedangkan jika property dengan nama key yang ditentukan tidak ditentukan, maka property baru akan ditambahkan ke object
+
+/*ARRAY
+array merupakan tipe data yang dapat mengelompokkan lebih dari satu nilai dan menempatkan dalam satu variabel
+jika berusaha mengakses index diluar ukuran array maka akan akan undefined 
+untuk menambahkan data ke dalam array kita bisa menggunakan metode push(), push() akan menambahkan data di akhir array
+mengeluarkan data dari array bisa menggunakan pop(), pop() akan mengeluarkan data yang ada di akhir array
+metode shift() digunakan untuk mengeluarkan elemen pertama dari array
+metode unshift() digunakan untuk menambahkan elemen pertama dari array
+keyword delete menghapus data pada index ditentukan lalu membiarkan posisi tersebut kosong
+splice() digunakan untuk menghapus elemen
+*/
+
+let arrayKu = ["Duid", 45.2, 30, true, "Halas"];
+arrayKu.push('JavaScript'); // menambahkan data terakhir ke dalam array
+arrayKu.pop(); // mengeluarkan data terakhir dari array
+arrayKu.shift(); // mengeluarkan data pertama dari array
+arrayKu.unshift('Falikhuddin'); // menambahkan dara pertama dari array
+delete arrayKu[3]; // hanya menghapus index yang sudah ditentukan lalu membiarkan posisi itu kosong
+arrayKu.splice(2, 1); // menghapus dari index 2 sebanyak 1 elemen
+
+console.log(arrayKu);
+console.log(arrayKu[3]);
+console.log(arrayKu[5]);
+console.log("Panjang nilai array " + arrayKu.length);
+
+/*SPREAD OPERATOR
+Spread operator, fitur yang digunakan untuk menyebarkan nilai array atau lebih tepatnya iterable object menjadi beberapa elemen
+Spread operator dituliskan dengan tiga titik (...)
+*/
+
+const favorites =  ["Seafood", "Salad", "Nugget", "Soup"];
+const others = ["Cake", "Pie", "Donut"];
+
+const allFavorites = [...favorites, ...others]; 
+
+console.log(...favorites); // spread operator bekerja seperti meleburkan nilai array menjadi beberapa elemen sesuai panjang nilai array
+console.log(allFavorites); // nilai dua array tersebut berhasil tergabung
+
+const obj1 = {firstName: 'Obi-Wan', age: 30};
+const obj2 = {lastName: 'Kenobi', gender: 'M'};
+
+const newObj = {...obj1, ...obj2};
+
+console.log(newObj);
+
+/* DESTRUCTING OBJECT & ARRAY
+Iterasi object dan array adalah dua hal yang paling banyak digunakan dalam mengelola data di JavaScript
+JSON (JavaScript Object Nation) merupakan format data paling populer yang digunakan dalam transaksi data saat ini
+Destructing dalam javascript merupakan sintaksis yang dapat mengeluarkan nilai dari array atau properties dari sebuah object ke dalam satuan yang lebih kecil
+1. Destructing Object
+Penulisan sintaks destructing object menggunakan object literal ({}) di sisi kiri dari operator assignment
+2. Destructing Assignment 
+Saat melakukan destructing assignment, perlu menuliskan destructing object di dalam tanda kurung
+Jika tidak menuliskan tanda kurung, tanda kurung kurawal akan membuat javascript mengira itu adalah block statement, sementara block statement tidak bisa berada pada sisi kiri assignment
+3. Default Values
+Ketika mendestruksikan objek dan menetapkan variabel dengan nama yang bukan merupakan properti dari objek, maka nilai dari variabel tersebut menjadi undefined
+
+ */
+
+const profile = {
+  namaBapak: "Samani",
+  namaIbuk: "Sriani",
+  age: 18
+}
+
+// let namaBapak = "Sentot"; destructive assignment
+// let age = 41;
+
+// tanda kurung akan memberi tahu javascript bahwa tanda kurawal didalamnya bukan block statement melainkan sebuah expression sehingga assignment dapat dilakukan
+// ({ namaBapak, age} = profile);
+
+const {namaBapak, age, isMale} = profile;
+
+console.log(namaBapak);
+console.log(age);
+console.log(isMale);
 
