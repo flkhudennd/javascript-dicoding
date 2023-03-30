@@ -498,8 +498,7 @@ Saat melakukan destructing assignment, perlu menuliskan destructing object di da
 Jika tidak menuliskan tanda kurung, tanda kurung kurawal akan membuat javascript mengira itu adalah block statement, sementara block statement tidak bisa berada pada sisi kiri assignment
 3. Default Values
 Ketika mendestruksikan objek dan menetapkan variabel dengan nama yang bukan merupakan properti dari objek, maka nilai dari variabel tersebut menjadi undefined
-
- */
+*/
 
 const profile = {
   namaBapak: "Samani",
@@ -519,3 +518,101 @@ console.log(namaBapak);
 console.log(age);
 console.log(isMale);
 
+/* DESTRUCTIVE ARRAY
+Destructive array serupa dengan destructive object
+Object menggunakan tanda kurung kurawal {} sedangkan array menggunakan tanda kurung siku []
+Perbedaan lainnya adalah destructive array bekerja berdasarkan posisi daripada penamaan propertinya 
+*/
+
+const [firstFood, secondFood, thirdFood, fourthFood] = favorites; 
+// nilai dari array yang dimasukkan ke variabel lokal dipilih berdasarkan posisi di mana ia dideklarasikan pada array
+
+console.log(firstFood);
+console.log(secondFood);
+console.log(thirdFood);
+console.log(fourthFood);
+
+// DESTRUCTIVE ASSIGNMENT
+// bisa melakukan destructive assignment pada array, namun tidak seperti object tidak perlu membungkusnya dengan tanda kurung
+let myFood = "Ice Cream";
+let herFood = "Noodles";
+
+[myFood, herFood] = favorites;
+
+console.log(myFood);
+console.log(herFood);
+
+// array destructing assignment sangat berguna ketika hendak menukar nilai antar 2 variabel
+// sebelum ES6 menukar variabel menggunakan variabel sementara
+let temp;
+
+console.log("Sebelum swap");
+console.log("Nilai a: " + a);
+console.log("Nilai b: " + b);
+
+temp = a;
+a = b;
+b = temp;
+
+console.log("Setelah swap");
+console.log("Nilai a: " + a);
+console.log("Nilai b: " + b);
+
+// Dengan array destructuring assignment, bisa menukar nilai variabel dengan mudah tanpa membuat variabel tambahan
+console.log("Sebelum swap");
+console.log("Nilai a: " + a);
+console.log("Nilai b: " + b);
+
+[a, b] = [b, a];
+
+console.log("Setelah swap");
+console.log("Nilai a: " + a);
+console.log("Nilai b: " + b);
+
+/*MAP
+Map adalah tipe data yang menyimpan koleksi data dengan format key-value layaknya object
+yang membedakan adalah map memperoleh key dengan tipe data apapun , dibandingkan object yang hanya mengizinkan key bertipe string atau symbol
+untuk mendefinisikan map gunakan constructor:
+const myMap = new Map();
+*/
+
+const myMap = new Map([ // array diluar berfungsi untuk menyimpan masing-masing elemen atau pasangan key-value dari map
+  ['1', 'a String key'], // array didalam memiliki 2 elemen di mana elemen pertama adalah key dan elemen kedua merupakan value
+  [1, 'a number key'],
+  [true, true]
+]);
+
+console.log(myMap);
+
+// ketika sudah membuat objek map kita bisa mendapatkan nilai berdasarkan key tertentu dengan metode get()
+// untuk menambahkan pasangan key-value baru menggunakan metode set()
+
+const capital = new Map([
+  ["Jakarta", "Indonesia"],
+  ["London", "Inggris"],
+  ["Madrid", "Spanyol"]
+]);
+
+console.log(capital.size);
+console.log(capital.get("Jakarta")); // jakarta adalah key sedangkan indonesia adalah value, jika diganti Indonesia maka akan mendapat undefined
+// console.log(capital.set("Tokyo", "Japan"));
+capital.set("Tokyo", "Jepang");
+console.log(capital.size);
+console.log(capital.get("Tokyo"));
+console.log(capital.has("Tokyo"));
+
+/*SET
+SET merupakan kumpulan nilai (set of values). Hal yang membedakan Set dengan struktur data yang lain adalah data pada Set tidak berurutan 
+dan juga tidak diindeks. Selain itu data di dalam Set juga bersifat unik dan tidak ada duplikasi 
+*/
+
+const numberSet = new Set([1, 4, 6, 4, 1]); // terdapat beberapa angka duplikat secara otomatis Set akan membuang angka yang sama 
+
+numberSet.add(5);
+numberSet.add(10); // fungsi add() hanya menerima satu argumen, jika memasukkan array maka array tersebut akan dianggap sebagai satu elemen sendiri maka duplikat diabaikan
+numberSet.delete(4); // set tidak memiliki urutan atau index sehingga argumen yang dimasukkan ke dalam fungsi delete adalah nilai yang ingin dihapus, bukan index nya
+console.log(numberSet);
+
+/*WEAKMAP & WEAKSET
+
+*/
